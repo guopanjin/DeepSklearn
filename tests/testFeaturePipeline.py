@@ -237,18 +237,28 @@ features_config={
     }
 }
 
-
-if __name__ == '__main__':
+def test1():
     criteo_debug_train_csv_path = '../../data/criteo/debug_train.csv'
-    feature_pipeline=FeaturePipeline(features_config)
-    batch_size=100
-    i=0;
-    for batch in pd.read_csv(criteo_debug_train_csv_path ,chunksize=batch_size):
-        features_dict=feature_pipeline.transform(batch)
-        i+=1
+    feature_pipeline = FeaturePipeline(features_config)
+    batch_size = 100
+    i = 0;
+    for batch in pd.read_csv(criteo_debug_train_csv_path, chunksize=batch_size):
+        features_dict = feature_pipeline.transform(batch)
+        i += 1
         print(features_dict)
         print("========")
-        if i>2:
+        if i > 2:
             break;
+def test2():
+    feature_pipeline = FeaturePipeline(features_config)
+    feature_columns=feature_pipeline.get_feature_columns()
+    print(feature_columns)
+
+
+
+if __name__ == '__main__':
+    test2()
+    pass
+
 
 

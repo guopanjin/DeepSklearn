@@ -1,6 +1,21 @@
 import logging
 from logging.handlers import TimedRotatingFileHandler
 import os
+import sys
+class ColorFormatter(logging.Formatter):
+    COLORS = {
+        "DEBUG": "\033[36m",
+        "INFO": "\033[32m",
+        "WARNING": "\033[33m",
+        "ERROR": "\033[31m",
+        "CRITICAL": "\033[41m"
+    }
+    RESET = "\033[0m"
+
+    def format(self, record):
+        msg = super().format(record)
+        color = self.COLORS.get(record.levelname, "")
+        return f"{color}{msg}{self.RESET}"
 
 class Logger:
     _logger = None
@@ -31,19 +46,23 @@ class Logger:
         handler = TimedRotatingFileHandler(log_path, when="midnight", interval=1, backupCount=backup_count)
         handler.suffix = "%Y-%m-%d"
 
-        formatter = logging.Formatter(
-            '%(asctime)s-%(levelname)s-%(filename)s_%(funcName)s - %(message)s',
+        colorformatter = ColorFormatter(
+            '%(asctime)s | %(levelname)s | %(filename)s:%(lineno)d | %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S'
         )
-        handler.setFormatter(formatter)
+        formatter = logging.Formatter(
+            '%(asctime)s | %(levelname)s | %(filename)s:%(lineno)d | %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
+        logger.handlers.clear()  # clear old handlers
+        logger.propagate = False  # in case the root logger will output once again.
 
+        #setup file handler
+        handler.setFormatter(formatter)
         logger.addHandler(handler)
 
-        console_handler = logging.StreamHandler()
-        console_handler.setFormatter(formatter)
+        #setup concole handler
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setFormatter(colorformatter)
         logger.addHandler(console_handler)
         return logger
-if __name__ == '__main__':
-    ROOT = os.environ.get("PROJECT_ROOT")
-    print(ROOT)
-    pass
