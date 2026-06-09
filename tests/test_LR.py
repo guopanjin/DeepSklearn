@@ -1,18 +1,27 @@
 import torch.optim
 import torch.nn as nn
-from utils import get_device,set_seed
-from features import FeaturePipeline
+from deepsklearn.utils import get_device,set_seed
+from deepsklearn.features import FeaturePipeline
 import torch.nn.functional as  F
-from models import LR
-from datasets import TorchStreamingDataset
-import pandas as pd
+from deepsklearn.models import LR
+from deepsklearn.datasets import TorchStreamingDataset
 import numpy as np
 from torch.utils.data import DataLoader
-from utils import Logger
+from deepsklearn.utils import Logger
 from sklearn.metrics import roc_auc_score
 '''
 baseline:
+optimizer=torch.optim.Adam(params=model.parameters(),lr=learning_rate)
 2026-05-24 00:46:10 | INFO | test_LR.py:368 | {'stage': 'validation', 'avg_validate_loss': 0.4945, 'validate_size': 4584062, 'validation_auc': 0.7392346397497195}
+add regularization:
+optimizer=torch.optim.Adam(params=model.parameters(),weight_decay=1e-5,lr=learning_rate)
+2026-05-24 16:57:31 | INFO | test_LR.py:376 | {'stage': 'validation', 'avg_validate_loss': 0.4945, 'validate_size': 4584062, 'validation_auc': 0.7392334486026022}
+change the optimizer from adam to adamw.
+optimizer=torch.optim.AdamW(params=model.parameters(),weight_decay=1e-5,lr=learning_rate)
+2026-05-24 17:49:51 | INFO | test_LR.py:382 | {'stage': 'validation', 'avg_validate_loss': 0.4945, 'validate_size': 4584062, 'validation_auc': 0.7392346397497195}
+
+
+
 TODO:
 regularization:
 scheduler learning rate.
@@ -288,7 +297,7 @@ def main():
     model=LR(feature_columns)
     loss_fn=nn.BCEWithLogitsLoss()
     learning_rate=0.001
-    optimizer=torch.optim.Adam(params=model.parameters(),weight_decay=1e-5,lr=learning_rate)
+    optimizer=torch.optim.AdamW(params=model.parameters(),weight_decay=1e-5,lr=learning_rate)
     device=get_device()
     logger.info(f"device:{device}")
     model.train()# training model mode

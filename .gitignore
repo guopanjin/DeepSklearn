@@ -1,7 +1,7 @@
 # Python cache
 __pycache__/
 *.pyc
-
+todo
 # env
 .venv/
 venv/
@@ -25,3 +25,11 @@ data/
 .ipynb_checkpoints/
 
 datasets_links
+
+# related build folds
+dist
+dist_custom
+deepsklearn.egg-info
+build
+some_commands
+

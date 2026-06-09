@@ -1,11 +1,8 @@
 import os
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import pandas as pd
-from torch.utils.data import Dataset,DataLoader,IterableDataset,get_worker_info
-from features import FeaturePipeline
-from utils import Logger
+from torch.utils.data import IterableDataset,get_worker_info
+from deepsklearn.features import FeaturePipeline
+from deepsklearn.utils import Logger
 '''
 Build the streamingDataset based on the pytorch API
 return (feature_dict,label_dict)

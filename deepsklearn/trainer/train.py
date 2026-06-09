@@ -1,4 +1,4 @@
-from utils.log_utils import Logger
+from deepsklearn.utils.log_utils import Logger
 logger=Logger.get_logger()
 
 def main():

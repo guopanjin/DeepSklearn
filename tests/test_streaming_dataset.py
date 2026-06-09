@@ -1,7 +1,5 @@
-from features import *
-import pandas as pd
 from torch.utils.data import DataLoader
-from datasets import *
+from deepsklearn.datasets import *
 feature_configs={
     "f1": {
         "type": "continuous",

@@ -1,5 +1,5 @@
 import pandas as pd
-from features.build_feature_processor import BuildProcessor
+from deepsklearn.features.feature_processor_registry import BuildProcessor
 import torch
 
 class FeaturePipeline:
@@ -9,10 +9,10 @@ class FeaturePipeline:
     def __initialize_process(self,feature_configs:dict):
         processor_dict={}
         for feature_name,cfg in feature_configs.items():
-            processor_dict[feature_name]=BuildProcessor.registry_processor(cfg)
+            processor_dict[feature_name]=BuildProcessor.get_feature_processor(cfg)
         return processor_dict
 
-    # for streaming trainner,so we need to input data here
+    # for streaming trainer,so we need to input data here
     def transform(self,batch:pd.DataFrame):
         feature_dict={}
         for feature_name,feature_process in self.processor_dict.items():

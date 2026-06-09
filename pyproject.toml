@@ -1,0 +1,18 @@
+[project]
+name = "deepsklearn"
+version = "0.1.0"
+description = "Sklearn-style "
+authors = [
+    {name = "guopan.jin"}
+]
+dependencies = [
+    "torch",
+    "numpy"
+]
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools]
+packages = ["deepsklearn"]

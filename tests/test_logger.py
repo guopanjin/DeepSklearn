@@ -1,6 +1,6 @@
-from utils import Logger
+from deepsklearn.utils import Logger
 import logging
-import sys
+
 logger=Logger.get_logger()
 logger.setLevel(logging.DEBUG)
 logger.error("erro")

@@ -1,0 +1,28 @@
+# 整个toml就是一个 dict ,整个是kv结构.
+#key 是trainning value是个dict,{lr:0.001}
+[training]
+lr = 0.001
+batch_size = 512
+epochs = 20
+
+[model]
+hidden_dim = 128
+dropout = 0.2
+#true,false要小写
+[data]
+aa=true
+bb=false
+train_path="/tmp/train.parquet"
+valid_path="/tmp/valid.parquet"
+
+# key 是features,values是array dict,就是array里面里每个元素都是dict
+# features:[{name:,vocab_size},{name:,vocab_size}]
+[[features]]
+
+name="userid"
+vocab_size=1000000
+
+[[features]]
+
+name="itemid"
+vocab_size=500000

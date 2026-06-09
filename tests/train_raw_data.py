@@ -5,13 +5,13 @@ random.seed(42)
 total_number=45840617
 '''
 def process_criteo_data():
-    train_file="../data/criteo/train.txt"
-    debug_train_file="../data/criteo/debug_train.txt"
-    debug_validation_file = "../data/criteo/debug_validation.txt"
-    debug_test_file = "../data/criteo/debug_test.txt"
-    experiment_train_file="../data/criteo/experiment_train.txt"
-    experiment_validation_file = "../data/criteo/experiment_validation.txt"
-    experiment_test_file = "../data/criteo/experiment_test.txt"
+    train_file= "../../data/criteo/train.txt"
+    debug_train_file= "../../data/criteo/debug_train.txt"
+    debug_validation_file = "../../data/criteo/debug_validation.txt"
+    debug_test_file = "../../data/criteo/debug_test.txt"
+    experiment_train_file= "../../data/criteo/experiment_train.txt"
+    experiment_validation_file = "../../data/criteo/experiment_validation.txt"
+    experiment_test_file = "../../data/criteo/experiment_test.txt"
     debug_number = 1_000_000
     total_number=0
     with open(train_file) as f:

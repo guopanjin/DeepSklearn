@@ -1,10 +1,8 @@
-from features.base import FeatureProcessor
+from deepsklearn.features.base import FeatureProcessor
 import numpy as np
-from pandas import DataFrame
 import pandas as pd
-from utils.hash_utils import xxhash_encoder
+from deepsklearn.utils.hash_utils import xxhash_encoder
 class ContinuousProcessor(FeatureProcessor):
-
     def __init__(self,scale=1.0,granularity=10,B=150):
         self.scale=scale
         self.granularity=granularity
@@ -39,5 +37,3 @@ class CategoricalProcessor(FeatureProcessor):
             xxhash_encoder(v)%self.bucket_size for v in x
         ])
         return x
-if __name__ == '__main__':
-    pass

@@ -1,4 +1,4 @@
-from features import *
+from deepsklearn.features import *
 import pandas as pd
 features_config={
     "f1": {
