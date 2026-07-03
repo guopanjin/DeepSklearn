@@ -9,6 +9,7 @@ import numpy as np
 from torch.utils.data import DataLoader
 from deepsklearn.utils import Logger
 from sklearn.metrics import roc_auc_score
+from deepsklearn.config import criteo_config
 '''
 baseline:
 optimizer=torch.optim.Adam(params=model.parameters(),lr=learning_rate)
@@ -20,263 +21,27 @@ change the optimizer from adam to adamw.
 optimizer=torch.optim.AdamW(params=model.parameters(),weight_decay=1e-5,lr=learning_rate)
 2026-05-24 17:49:51 | INFO | test_LR.py:382 | {'stage': 'validation', 'avg_validate_loss': 0.4945, 'validate_size': 4584062, 'validation_auc': 0.7392346397497195}
 
+## fix the bug of ModuleDict
+2026-06-30 18:06:32 | INFO | test_LR.py:152 | {'stage': 'validation', 'avg_validate_loss': 0.46, 'validate_size': 4584062, 'validation_auc': 0.7875293362189391}
 
-
-TODO:
-regularization:
-scheduler learning rate.
-AdamW(weight_decay=1e-5)
+debug data:
+2026-06-30 19:37:57 | INFO | test_LR.py:150 | {'stage': 'validation', 'avg_validate_loss': 0.5102, 'validate_size': 100000, 'validation_auc': 0.7123905832997076}
 '''
 logger=Logger.get_logger()
-feature_configs={
-    "f1": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f2": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f3": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f4": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f5": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f6": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f7": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f8": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f9": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f10": {
-        "type": "continuous",
-        "args": {
-            "scale": 100
-        }
-    },
-    "f11": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f12": {
-        "type": "continuous",
-        "args": {
-            "scale": 100
-        }
-    },
-    "f13": {
-        "type": "continuous",
-        "args": {
-            "scale": 1
-        }
-    },
-    "f14": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 3555
-        }
-    },
-    "f15": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 1587
-        }
-    },
-    "f16": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 793416
-        }
-    },
-    "f17": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 310695
-        }
-    },
-    "f18": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 777
-        }
-    },
-    "f19": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 39
-        }
-    },
-    "f20": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 31998
-        }
-    },
-    "f21": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 1626
-        }
-    },
-    "f22": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 9
-        }
-    },
-    "f23": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 84765
-        }
-    },
-    "f24": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 13974
-        }
-    },
-    "f25": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 667350
-        }
-    },
-    "f26": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 9174
-        }
-    },
-    "f27": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 78
-        }
-    },
-    "f28": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 25734
-        }
-    },
-    "f29": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 516963
-        }
-    },
-    "f30": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 30
-        }
-    },
-    "f31": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 11289
-        }
-    },
-    "f32": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 5406
-        }
-    },
-    "f33": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 9
-        }
-    },
-    "f34": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 600624
-        }
-    },
-    "f35": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 42
-        }
-    },
-    "f36": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 45
-        }
-    },
-    "f37": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 110532
-        }
-    },
-    "f38": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 204
-        }
-    },
-    "f39": {
-        "type": "catagorical",
-        "args": {
-            "bucket_size": 83871
-        }
-    }
-}
-label_configs=['label']
+set_seed(42)
+feature_config=criteo_config.feature_config
+label_config=criteo_config.label_config
+train_data=criteo_config.debug_train_data
+validation_data=criteo_config.debug_validation_data
+batch_size=20000
+validation_batch_size = 1000000
 def main():
-    set_seed(42)
-    #debug_train.csv experiment_train.csv
-    train_data = '../../data/criteo/experiment_train.csv'
-    validation_data='../../data/criteo/experiment_validation.csv'
-    batch_size = 20000
-    validation_batch_size=1000000
-    feature_columns=FeaturePipeline(feature_configs).get_feature_columns()
+    feature_columns=FeaturePipeline(feature_config).get_feature_columns()
     logger.info(feature_columns)
-    train_dataset = TorchStreamingDataset(data_path=train_data,
-                                    feature_configs=feature_configs,
-                                    label_configs=label_configs,
+    train_dataset = TorchStreamingDataset(
+                                    data_path=train_data,
+                                    feature_configs=feature_config,
+                                    label_configs=label_config,
                                     batch_size=batch_size
                                     )
     train_dataLoader = DataLoader(
@@ -284,8 +49,8 @@ def main():
         batch_size=None
     )
     validation_dataset = TorchStreamingDataset(data_path=validation_data,
-                                          feature_configs=feature_configs,
-                                          label_configs=label_configs,
+                                          feature_configs=feature_config,
+                                          label_configs=label_config,
                                           batch_size=validation_batch_size
                                           )
 
@@ -320,15 +85,15 @@ def main():
             loss=loss_fn(logits,label)
             loss.backward()
             optimizer.step()
-            batch_size=list(feature_dict.values())[0].shape[0]
-            global_size += batch_size
+            cur_batch_size=list(feature_dict.values())[0].shape[0]
+            global_size += cur_batch_size
             global_batch_number+=1
             # calculate the loss
             batch_loss=loss.detach().cpu().item()
-            window_loss+=batch_loss*batch_size
-            window_size+=batch_size
-            epoch_loss+=batch_loss*batch_size
-            epoch_size+=batch_size
+            window_loss+=batch_loss*cur_batch_size
+            window_size+=cur_batch_size
+            epoch_loss+=batch_loss*cur_batch_size
+            epoch_size+=cur_batch_size
             if(ema_loss==None):
                 ema_loss=batch_loss
             else:
@@ -377,9 +142,9 @@ def validation_metrics(validation_loader,model,loss_fn):
         label_list.extend(list(label.detach().cpu().numpy().squeeze(axis=1)))
         predict_list.extend(list(F.sigmoid(logits).detach().cpu().numpy().squeeze(axis=1)))
         batch_loss = loss.detach().cpu().item()
-        batch_size=list(feature_dict.values())[0].shape[0]
-        validate_loss+=batch_loss*batch_size
-        validate_size+=batch_size
+        cur_batch_size=list(feature_dict.values())[0].shape[0]
+        validate_loss+=batch_loss*cur_batch_size
+        validate_size+=cur_batch_size
     avg_validate_loss=np.round(validate_loss/validate_size,4)
     auc=roc_auc_score(label_list,predict_list)
     logger.info({
@@ -389,6 +154,7 @@ def validation_metrics(validation_loader,model,loss_fn):
         "validation_auc":auc
     })
     model.train()
+
 if __name__ == '__main__':
     main()
     pass

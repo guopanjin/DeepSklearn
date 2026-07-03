@@ -20,7 +20,6 @@ def set_seed(seed: int = 42, deterministic: bool = False):
     torch.cuda.manual_seed_all(seed)
     # Python hash seed (important for reproducibility)
     os.environ["PYTHONHASHSEED"] = str(seed)
-
     # Deterministic mode (trade speed for reproducibility)
     if deterministic:
         torch.backends.cudnn.deterministic = True

@@ -1,15 +1,15 @@
 import pandas as pd
-from deepsklearn.features.feature_processor_registry import BuildProcessor
+from deepsklearn.features.feature_processor_registry import get_feature_processor
 import torch
 
 class FeaturePipeline:
-    def __init__(self,feature_configs:dict):
-        self.feature_configs=feature_configs
-        self.processor_dict=self.__initialize_process(self.feature_configs)
-    def __initialize_process(self,feature_configs:dict):
+    def __init__(self,feature_config:dict):
+        self.feature_config=feature_config
+        self.processor_dict=self.__initialize_process(self.feature_config)
+    def __initialize_process(self,feature_config:dict):
         processor_dict={}
-        for feature_name,cfg in feature_configs.items():
-            processor_dict[feature_name]=BuildProcessor.get_feature_processor(cfg)
+        for feature_name,cfg in feature_config.items():
+            processor_dict[feature_name]=get_feature_processor(cfg)
         return processor_dict
 
     # for streaming trainer,so we need to input data here
@@ -21,13 +21,11 @@ class FeaturePipeline:
         return feature_dict
     def get_feature_columns(self):
         feature_columns={}
-        for key,value in self.feature_configs.items():
+        for key,value in self.feature_config.items():
             type=value['type']
             if type=='continuous':
                 feature_columns[key]=302
             else:
                 feature_columns[key]=value['args']['bucket_size']
         return feature_columns
-
-
 

@@ -1,15 +1,13 @@
-from .feature_processors import ContinuousProcessor,CategoricalProcessor
+from deepsklearn.features.feature_processors import ContinuousProcessor,CategoricalProcessor
 
-_REGISTRY={
+_Feature_processor_REGISTRY={
      "continuous":ContinuousProcessor,
      "catagorical":CategoricalProcessor
 }
 
-class BuildProcessor:
-    @staticmethod
-    def get_feature_processor(cfg):
-        if cfg['type'] not in _REGISTRY:
-            raise ValueError(f"there is no such type:{cfg['type']},available:{list(_REGISTRY.keys())}")
-        cls=_REGISTRY[cfg['type']]
-        args=cfg['args'] # this is a dict type
-        return cls(**args) # initialize class here
+def get_feature_processor(cfg):
+    if cfg['type'] not in _Feature_processor_REGISTRY:
+        raise ValueError(f"there is no such type:{cfg['type']},available:{sorted(_Feature_processor_REGISTRY.keys())}")
+    cls=_Feature_processor_REGISTRY[cfg['type']]
+    args=cfg['args'] # this is a dict type
+    return cls(**args) # initialize class here

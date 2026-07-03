@@ -1,6 +1,4 @@
-from torch.utils.data import DataLoader
-from deepsklearn.datasets import *
-feature_configs={
+feature_config={
     "f1": {
         "type": "continuous",
         "args": {
@@ -237,38 +235,14 @@ feature_configs={
     }
 }
 
-label_configs=["label"]
+label_config=['label']
+#36672495
+train_data = '../../data/criteo/experiment_train.csv'
+#4584063
+validation_data = '../../data/criteo/experiment_validation.csv'
 
-
-if __name__ == '__main__':
-    criteo_debug_train_csv_path = '../../data/criteo/debug_train.csv'
-    batch_size=10
-
-    dataset=TorchStreamingDataset(data_path=criteo_debug_train_csv_path,
-                                  feature_configs=feature_configs,
-                                  label_configs=label_configs,
-                                  batch_size=batch_size
-                               )
-
-    i=0
-    #dataLoader=DataLoader(dataset,batch_size=None)
-    dataLoader=DataLoader(
-        dataset,
-        batch_size=None,
-        num_workers=4,
-        pin_memory=False,
-        prefetch_factor=2,
-        persistent_workers=True
-    )
-    for feature_dict,label_dict in dataLoader:
-        i+=1
-        print(feature_dict)
-        print(feature_dict["f1"].shape)
-        print(label_dict)
-        print(label_dict["label"].shape)
-        if(i>2):
-            break;
-
-
-
+#800001
+debug_train_data = '../../data/criteo/debug_train.csv'
+#100001
+debug_validation_data = '../../data/criteo/debug_validation.csv'
 
