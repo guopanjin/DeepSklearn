@@ -64,6 +64,7 @@ class Trainer:
         self.customize_initialization=customize_initialization
     def train(self):
         logger.info(f"device:{self.device}")
+        logger.info(f"{self.model_name} structure:\n {self.model}")
         scheduler=None
         if self.use_warm_up:
             scheduler=get_linear_scheduler(optimizer=self.optimizer, warmup_steps=self.warm_up_steps)
@@ -114,10 +115,10 @@ class Trainer:
                         "global_step":global_step
                     })
                 if global_step % self.validation_steps ==0:
-                    self._evaluation(epoch=epoch)
+                    self._evaluation(epoch=epoch,model_name=self.model_name)
                 if scheduler:
                     scheduler.step()
-            self._evaluation(epoch=epoch)
+            self._evaluation(epoch=epoch,model_name=self.model_name)
 
     def save(self):
         if self.model_dir is None:
@@ -127,7 +128,7 @@ class Trainer:
         torch.save(self.model.state_dict(),model_path)
         logger.info(f"successfully save model to the path {model_path}")
     @torch.no_grad()
-    def _evaluation(self,epoch):
+    def _evaluation(self,*,epoch,model_name):
         self.model.eval()
         loss_sum=0
         size_sum=0
@@ -149,6 +150,7 @@ class Trainer:
         validation_loss=np.round(loss_sum/size_sum,4)
         logger.info({
             "stage":"validation",
+            "model_name":model_name,
             "epoch":epoch,
             "validation_number":size_sum,
             "validation_auc":auc_metric,
