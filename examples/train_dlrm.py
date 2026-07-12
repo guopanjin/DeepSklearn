@@ -8,8 +8,8 @@ from torch.utils.data import DataLoader,Dataset
 from deepsklearn.models import DLRM
 from deepsklearn.trainer import DiscriminativeTrainer
 '''
-2026-07-04 19:09:01 | INFO | discriminative_trainer.py:105 | {'model': 'dlrm', 'duration': '25.801min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4503210484981537, 'step_auc': 0.8042710128291359, 'ema_loss': 0.44784486700470894, 'global_size': 36600000, 'global_step': 1830}
-2026-07-04 19:11:39 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'model_name': 'dlrm', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8077429765595789, 'validation_loss': 0.4424}
+2026-07-04 19:09:01 | INFO | generative_trainer.py:105 | {'model': 'dlrm', 'duration': '25.801min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4503210484981537, 'step_auc': 0.8042710128291359, 'ema_loss': 0.44784486700470894, 'global_size': 36600000, 'global_step': 1830}
+2026-07-04 19:11:39 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'model_name': 'dlrm', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8077429765595789, 'validation_loss': 0.4424}
 
 '''
 logger=Logger.get_logger()

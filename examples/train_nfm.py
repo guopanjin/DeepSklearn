@@ -8,8 +8,8 @@ from torch.utils.data import DataLoader,Dataset
 from deepsklearn.models import NFM
 from deepsklearn.trainer import DiscriminativeTrainer
 '''
-2026-07-04 20:59:25 | INFO | discriminative_trainer.py:105 | {'model': 'nfm', 'duration': '17.756min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.45279067754745483, 'step_auc': 0.8008547085198656, 'ema_loss': 0.4506110442286428, 'global_size': 36600000, 'global_step': 1830}
-2026-07-04 21:00:29 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'model_name': 'nfm', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8037815493094347, 'validation_loss': 0.4458}
+2026-07-04 20:59:25 | INFO | generative_trainer.py:105 | {'model': 'nfm', 'duration': '17.756min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.45279067754745483, 'step_auc': 0.8008547085198656, 'ema_loss': 0.4506110442286428, 'global_size': 36600000, 'global_step': 1830}
+2026-07-04 21:00:29 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'model_name': 'nfm', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8037815493094347, 'validation_loss': 0.4458}
 
 '''
 logger=Logger.get_logger()

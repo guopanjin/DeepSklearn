@@ -9,26 +9,26 @@ from deepsklearn.models import DNN
 from deepsklearn.trainer import DiscriminativeTrainer
 '''
 basic:
-2026-07-02 19:30:44 | INFO | discriminative_trainer.py:99 | {'model': 'dnn', 'duration': '60.515min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.45818954706192017, 'step_auc': 0.7951053910426619, 'ema_loss': 0.457087082865604, 'global_size': 36600000, 'global_step': 1830}
-2026-07-02 19:31:57 | INFO | discriminative_trainer.py:143 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7969904831455228, 'validation_loss': 0.4521}
+2026-07-02 19:30:44 | INFO | generative_trainer.py:99 | {'model': 'dnn', 'duration': '60.515min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.45818954706192017, 'step_auc': 0.7951053910426619, 'ema_loss': 0.457087082865604, 'global_size': 36600000, 'global_step': 1830}
+2026-07-02 19:31:57 | INFO | generative_trainer.py:143 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7969904831455228, 'validation_loss': 0.4521}
 
 norm=True,
 dropout=0.1,
 customize_init_embedding=True
-2026-07-03 07:58:06 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8058751984965479, 'validation_loss': 0.4439}
+2026-07-03 07:58:06 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8058751984965479, 'validation_loss': 0.4439}
 
 norm=True,
 dropout=0.1,
 customize_init_embedding=False
-2026-07-03 08:37:01 | INFO | discriminative_trainer.py:105 | {'model': 'dnn', 'duration': '24.573min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.462909996509552, 'step_auc': 0.7901971443948891, 'ema_loss': 0.46177941387995525, 'global_size': 36600000, 'global_step': 1830}
-2026-07-03 08:38:11 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7953770298259975, 'validation_loss': 0.4531}
+2026-07-03 08:37:01 | INFO | generative_trainer.py:105 | {'model': 'dnn', 'duration': '24.573min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.462909996509552, 'step_auc': 0.7901971443948891, 'ema_loss': 0.46177941387995525, 'global_size': 36600000, 'global_step': 1830}
+2026-07-03 08:38:11 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7953770298259975, 'validation_loss': 0.4531}
 
 
 norm=False,
 dropout=0,
 customize_init_embedding=True
-2026-07-03 09:47:04 | INFO | discriminative_trainer.py:105 | {'model': 'dnn', 'duration': '24.788min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4517657160758972, 'step_auc': 0.8020336760364111, 'ema_loss': 0.4501568763407472, 'global_size': 36600000, 'global_step': 1830}
-2026-07-03 09:48:14 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8051325325380692, 'validation_loss': 0.4448}
+2026-07-03 09:47:04 | INFO | generative_trainer.py:105 | {'model': 'dnn', 'duration': '24.788min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4517657160758972, 'step_auc': 0.8020336760364111, 'ema_loss': 0.4501568763407472, 'global_size': 36600000, 'global_step': 1830}
+2026-07-03 09:48:14 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8051325325380692, 'validation_loss': 0.4448}
 '''
 
 logger=Logger.get_logger()

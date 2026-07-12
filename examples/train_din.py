@@ -8,9 +8,9 @@ from deepsklearn.models import DIN
 from deepsklearn.trainer import DiscriminativeTrainer
 '''
 dropout=0.2,earystop, epoch_number=200,
-2026-07-07 21:02:04 | INFO | discriminative_trainer.py:179 | {'stage': 'validation', 'model_name': 'din', 'epoch': 15, 'validation_number': 44726, 'validation_auc': 0.7275482880833878, 'validation_loss': 0.7393}
-2026-07-07 21:02:04 | INFO | discriminative_trainer.py:211 | early stop,stop training, best_auc:0.7296014349773876,best_loss:0.6453, bad_round:5, min_delta:0.0005
-2026-07-07 21:02:04 | INFO | discriminative_trainer.py:149 | restore the best model weight to the current model
+2026-07-07 21:02:04 | INFO | generative_trainer.py:179 | {'stage': 'validation', 'model_name': 'din', 'epoch': 15, 'validation_number': 44726, 'validation_auc': 0.7275482880833878, 'validation_loss': 0.7393}
+2026-07-07 21:02:04 | INFO | generative_trainer.py:211 | early stop,stop training, best_auc:0.7296014349773876,best_loss:0.6453, bad_round:5, min_delta:0.0005
+2026-07-07 21:02:04 | INFO | generative_trainer.py:149 | restore the best model weight to the current model
 '''
 logger=Logger.get_logger()
 set_seed(42)

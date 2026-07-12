@@ -18,6 +18,12 @@ from deepsklearn.models.sequence.bst import  BST
 from deepsklearn.models.sequence.avg_pooling import  AvgPooling
 from deepsklearn.models.sequence.din import  DIN
 
+from deepsklearn.models.generative.hstu import  HSTU
+from deepsklearn.models.generative.sasrec import  SASRec
+from deepsklearn.models.generative.gru4rec import  GRU4Rec
+from deepsklearn.models.generative.bert4rec import  Bert4Rec
+
+
 
 
 

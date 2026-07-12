@@ -1,1 +1,2 @@
-from deepsklearn.trainer.discriminative_trainer import DiscriminativeTrainer,Predictor
+from deepsklearn.trainer.discriminative_trainer import DiscriminativeTrainer
+from deepsklearn.trainer.generative_trainer import GenerativeTrainer

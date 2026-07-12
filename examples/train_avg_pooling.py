@@ -11,14 +11,14 @@ from deepsklearn.trainer import DiscriminativeTrainer
 dropout=0.2,earystop, epoch_number=200,
  
 ###avg_pooling:50
-2026-07-07 19:45:34 | INFO | discriminative_trainer.py:179 | {'stage': 'validation', 'model_name': 'avg_pooling', 'epoch': 25, 'validation_number': 44726, 'validation_auc': 0.7243282333671035, 'validation_loss': 0.6342}
-2026-07-07 19:45:34 | INFO | discriminative_trainer.py:211 | early stop,stop training, best_auc:0.7252544271466989,best_loss:0.6295, bad_round:5, min_delta:0.0005
-2026-07-07 19:45:34 | INFO | discriminative_trainer.py:149 | restore the best model weight to the current model
+2026-07-07 19:45:34 | INFO | generative_trainer.py:179 | {'stage': 'validation', 'model_name': 'avg_pooling', 'epoch': 25, 'validation_number': 44726, 'validation_auc': 0.7243282333671035, 'validation_loss': 0.6342}
+2026-07-07 19:45:34 | INFO | generative_trainer.py:211 | early stop,stop training, best_auc:0.7252544271466989,best_loss:0.6295, bad_round:5, min_delta:0.0005
+2026-07-07 19:45:34 | INFO | generative_trainer.py:149 | restore the best model weight to the current model
  
 ###avg_poling real_seq_len
-2026-07-07 19:55:11 | INFO | discriminative_trainer.py:179 | {'stage': 'validation', 'model_name': 'avg_pooling', 'epoch': 19, 'validation_number': 44726, 'validation_auc': 0.7262610782283466, 'validation_loss': 0.665}
-2026-07-07 19:55:11 | INFO | discriminative_trainer.py:211 | early stop,stop training, best_auc:0.7325087775933158,best_loss:0.6394, bad_round:5, min_delta:0.0005
-2026-07-07 19:55:11 | INFO | discriminative_trainer.py:149 | restore the best model weight to the current model
+2026-07-07 19:55:11 | INFO | generative_trainer.py:179 | {'stage': 'validation', 'model_name': 'avg_pooling', 'epoch': 19, 'validation_number': 44726, 'validation_auc': 0.7262610782283466, 'validation_loss': 0.665}
+2026-07-07 19:55:11 | INFO | generative_trainer.py:211 | early stop,stop training, best_auc:0.7325087775933158,best_loss:0.6394, bad_round:5, min_delta:0.0005
+2026-07-07 19:55:11 | INFO | generative_trainer.py:149 | restore the best model weight to the current model
 
 
 '''

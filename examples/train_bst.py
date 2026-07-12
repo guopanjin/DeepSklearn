@@ -8,16 +8,16 @@ from deepsklearn.models import BST
 from deepsklearn.trainer import DiscriminativeTrainer
 '''
 no dropout,no earystop, epoch_number=200,
-2026-07-07 16:49:16 | INFO | discriminative_trainer.py:105 | {'model': 'bst', 'duration': '59.704min', 'stage': 'training', 'epoch': 199, 'step_size': 2826, 'step_loss': 1.7471880710218102e-05, 'step_auc': 1.0, 'ema_loss': 0.00011824234243329561, 'global_size': 52565200, 'global_step': 5400}
-2026-07-07 16:49:17 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'model_name': 'bst', 'epoch': 199, 'validation_number': 44726, 'validation_auc': 0.6933868478803646, 'validation_loss': 6.8213}
-2026-07-07 16:49:18 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'model_name': 'bst', 'epoch': 199, 'validation_number': 44726, 'validation_auc': 0.6933868478803646, 'validation_loss': 6.8213}
+2026-07-07 16:49:16 | INFO | generative_trainer.py:105 | {'model': 'bst', 'duration': '59.704min', 'stage': 'training', 'epoch': 199, 'step_size': 2826, 'step_loss': 1.7471880710218102e-05, 'step_auc': 1.0, 'ema_loss': 0.00011824234243329561, 'global_size': 52565200, 'global_step': 5400}
+2026-07-07 16:49:17 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'model_name': 'bst', 'epoch': 199, 'validation_number': 44726, 'validation_auc': 0.6933868478803646, 'validation_loss': 6.8213}
+2026-07-07 16:49:18 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'model_name': 'bst', 'epoch': 199, 'validation_number': 44726, 'validation_auc': 0.6933868478803646, 'validation_loss': 6.8213}
 
 dropout=0.2,earystop, epoch_number=200,
 
-2026-07-07 17:34:13 | INFO | discriminative_trainer.py:116 | {'model': 'bst', 'duration': '2.989min', 'stage': 'training', 'epoch': 9, 'step_size': 2826, 'step_loss': 0.234773650765419, 'step_auc': 0.9754919564512923, 'ema_loss': 0.37083536476154827, 'global_size': 2628260, 'global_step': 270}
-2026-07-07 17:34:14 | INFO | discriminative_trainer.py:179 | {'stage': 'validation', 'model_name': 'bst', 'epoch': 9, 'validation_number': 44726, 'validation_auc': 0.7038657781041437, 'validation_loss': 0.8201}
-2026-07-07 17:34:14 | INFO | discriminative_trainer.py:211 | early stop,stop training, best_auc:0.7191011191919252,best_loss:0.6505, bad_round:5, min_delta:0.0005
-2026-07-07 17:34:14 | INFO | discriminative_trainer.py:149 | restore the best model weight to the current model
+2026-07-07 17:34:13 | INFO | generative_trainer.py:116 | {'model': 'bst', 'duration': '2.989min', 'stage': 'training', 'epoch': 9, 'step_size': 2826, 'step_loss': 0.234773650765419, 'step_auc': 0.9754919564512923, 'ema_loss': 0.37083536476154827, 'global_size': 2628260, 'global_step': 270}
+2026-07-07 17:34:14 | INFO | generative_trainer.py:179 | {'stage': 'validation', 'model_name': 'bst', 'epoch': 9, 'validation_number': 44726, 'validation_auc': 0.7038657781041437, 'validation_loss': 0.8201}
+2026-07-07 17:34:14 | INFO | generative_trainer.py:211 | early stop,stop training, best_auc:0.7191011191919252,best_loss:0.6505, bad_round:5, min_delta:0.0005
+2026-07-07 17:34:14 | INFO | generative_trainer.py:149 | restore the best model weight to the current model
 
 '''
 logger=Logger.get_logger()

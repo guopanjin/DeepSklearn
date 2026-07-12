@@ -11,16 +11,16 @@ from deepsklearn.utils import prevent_sleep
 
 '''
 base:
-2026-07-02 18:34:28 | INFO | discriminative_trainer.py:99 | {'duration': '25.404min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4671539068222046, 'step_auc': 0.7844866029034115, 'ema_loss': 0.4656378122810304, 'global_size': 36600000, 'global_step': 1830}
-2026-07-02 18:35:55 | INFO | discriminative_trainer.py:142 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.787538365202911, 'validation_loss': 0.4599}
+2026-07-02 18:34:28 | INFO | generative_trainer.py:99 | {'duration': '25.404min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4671539068222046, 'step_auc': 0.7844866029034115, 'ema_loss': 0.4656378122810304, 'global_size': 36600000, 'global_step': 1830}
+2026-07-02 18:35:55 | INFO | generative_trainer.py:142 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.787538365202911, 'validation_loss': 0.4599}
 
 embedding std=0.01
-2026-07-03 10:29:59 | INFO | discriminative_trainer.py:104 | {'model': 'lr', 'duration': '24.516min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4628312289714813, 'step_auc': 0.7893916095791148, 'ema_loss': 0.4608991278307685, 'global_size': 36600000, 'global_step': 1830}
-2026-07-03 10:31:07 | INFO | discriminative_trainer.py:150 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.792857141252971, 'validation_loss': 0.4556}
+2026-07-03 10:29:59 | INFO | generative_trainer.py:104 | {'model': 'lr', 'duration': '24.516min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4628312289714813, 'step_auc': 0.7893916095791148, 'ema_loss': 0.4608991278307685, 'global_size': 36600000, 'global_step': 1830}
+2026-07-03 10:31:07 | INFO | generative_trainer.py:150 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.792857141252971, 'validation_loss': 0.4556}
 
 real lr:
-2026-07-03 17:25:50 | INFO | discriminative_trainer.py:104 | {'model': 'lr', 'duration': '17.819min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.46462205052375793, 'step_auc': 0.787673251512461, 'ema_loss': 0.4632064839654579, 'global_size': 36600000, 'global_step': 1830}
-2026-07-03 17:26:50 | INFO | discriminative_trainer.py:150 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7907067053297588, 'validation_loss': 0.4574}
+2026-07-03 17:25:50 | INFO | generative_trainer.py:104 | {'model': 'lr', 'duration': '17.819min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.46462205052375793, 'step_auc': 0.787673251512461, 'ema_loss': 0.4632064839654579, 'global_size': 36600000, 'global_step': 1830}
+2026-07-03 17:26:50 | INFO | generative_trainer.py:150 | {'stage': 'validation', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7907067053297588, 'validation_loss': 0.4574}
 
 
 '''

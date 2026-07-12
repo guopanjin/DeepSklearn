@@ -1,2 +1,6 @@
 from deepsklearn.datasets.streaming_dataset import TorchStreamingDataset
 from deepsklearn.datasets.seq_dataset import TorchStreamingSeqDataset
+from deepsklearn.datasets.generative_dataset import TorchStreamingGenerativeDataset
+from deepsklearn.datasets.bert_dataset import TorchStreamingBertDataset
+
+

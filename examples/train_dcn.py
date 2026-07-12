@@ -8,8 +8,8 @@ from torch.utils.data import DataLoader,Dataset
 from deepsklearn.models import DCN
 from deepsklearn.trainer import DiscriminativeTrainer
 '''
-2026-07-04 17:29:44 | INFO | discriminative_trainer.py:105 | {'model': 'dcn', 'duration': '25.128min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.452028751373291, 'step_auc': 0.8018812677502679, 'ema_loss': 0.45016266963866125, 'global_size': 36600000, 'global_step': 1830}
-2026-07-04 17:33:16 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'model_name': 'dcn', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8047349629726349, 'validation_loss': 0.4452}
+2026-07-04 17:29:44 | INFO | generative_trainer.py:105 | {'model': 'dcn', 'duration': '25.128min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.452028751373291, 'step_auc': 0.8018812677502679, 'ema_loss': 0.45016266963866125, 'global_size': 36600000, 'global_step': 1830}
+2026-07-04 17:33:16 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'model_name': 'dcn', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.8047349629726349, 'validation_loss': 0.4452}
 
 '''
 logger=Logger.get_logger()

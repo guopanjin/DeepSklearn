@@ -8,8 +8,8 @@ from torch.utils.data import DataLoader,Dataset
 from deepsklearn.models import AutoInt
 from deepsklearn.trainer import DiscriminativeTrainer
 '''
-2026-07-05 21:14:29 | INFO | discriminative_trainer.py:105 | {'model': 'autoint', 'duration': '89.358min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4589240849018097, 'step_auc': 0.7935455972090829, 'ema_loss': 0.4571208848325671, 'global_size': 36600000, 'global_step': 1830}
-2026-07-05 21:18:50 | INFO | discriminative_trainer.py:151 | {'stage': 'validation', 'model_name': 'autoint', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7970372855734337, 'validation_loss': 0.4517}
+2026-07-05 21:14:29 | INFO | generative_trainer.py:105 | {'model': 'autoint', 'duration': '89.358min', 'stage': 'training', 'epoch': 0, 'step_size': 20000, 'step_loss': 0.4589240849018097, 'step_auc': 0.7935455972090829, 'ema_loss': 0.4571208848325671, 'global_size': 36600000, 'global_step': 1830}
+2026-07-05 21:18:50 | INFO | generative_trainer.py:151 | {'stage': 'validation', 'model_name': 'autoint', 'epoch': 0, 'validation_number': 4584062, 'validation_auc': 0.7970372855734337, 'validation_loss': 0.4517}
 
 '''
 logger=Logger.get_logger()

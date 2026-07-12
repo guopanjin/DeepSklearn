@@ -1,16 +1,17 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from deepsklearn.normalizations import RMSNormal
 
 class MultiHeadAttention(nn.Module):
     def __init__(self,
                  embed_dim:int,
-                 num_heads:int
+                 num_heads:int,
+                 use_causal_mask:bool=False
                  ):
         super().__init__()
         self.embed_dim=embed_dim
         self.num_heads=num_heads
+        self.use_causal_mask=use_causal_mask
         if self.num_heads > self.embed_dim:
             raise ValueError("num_heads must less len embed_dim")
         if embed_dim % num_heads!=0:
@@ -44,7 +45,14 @@ class MultiHeadAttention(nn.Module):
             # dim=-2 is feature_size.so we need to copy mask for each feature
             mask=torch.unsqueeze(key_padding_mask,dim=-2).expand((batch_size,feature_size,feature_size))
             mask=torch.unsqueeze(mask,dim=1).expand((batch_size,self.num_heads,feature_size,feature_size))
-            attention_score=torch.masked_fill(attention_score,mask,float('-inf'))
+            #For nan,one number is nan,all number is nan,so need to change float('-inf') to 1e-9,in case,some row is all padding.
+            attention_score=torch.masked_fill(attention_score,mask,1e-9)
+        if self.use_causal_mask:
+            #diagonal=1  token can attention to itself
+            causal_mask=torch.triu(torch.ones(feature_size,feature_size),diagonal=1).to(torch.bool)#(feature_size,feature_size)
+            causal_mask=causal_mask.to(q.device)
+            attention_score=torch.masked_fill(attention_score,causal_mask,1e-9)
+
         attention_weight=F.softmax(attention_score,dim=-1) #(batch_size,num_heads,feature_size,feature_size)
 
         attention_out=attention_weight@v#(batch_size,num_heads,feature_size,head_dim)
@@ -67,7 +75,8 @@ class EncoderLayer(nn.Module):
                  num_heads:int,
                  ffn_dim:int,
                  norm_first:bool=False,
-                 norm_layer:callable=None
+                 norm_layer:callable=None,
+                 use_causal_mask:bool=False
                  ):
         super().__init__()
         self.embed_dim=embed_dim
@@ -75,9 +84,10 @@ class EncoderLayer(nn.Module):
         self.ffn_dim=ffn_dim
         self.norm_first=norm_first
         self.norm_layer=norm_layer
-
+        self.use_causal_mask=use_causal_mask
         self.mha=MultiHeadAttention(embed_dim=self.embed_dim,
-                                    num_heads=self.num_heads
+                                    num_heads=self.num_heads,
+                                    use_causal_mask=self.use_causal_mask
                                     )
         if self.norm_layer is None:
             self.normal1=nn.LayerNorm(self.embed_dim)
