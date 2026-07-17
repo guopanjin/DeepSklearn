@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: DeepSklearn
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Jin
+    given-names: Guopan
+version: 1.0.0
+date-released: 2026-07-17
+license: MIT
+repository-code: https://github.com/guopanjin/deepsklearn
