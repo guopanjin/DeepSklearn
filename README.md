@@ -70,3 +70,19 @@ Here is the collection of deep learning and recommendation algorithms supported 
 | **DSIN** | Deep Session Interest Network | [Feng et al., 2019] [Deep Session Interest Network for Click-Through Rate Prediction](https://arxiv.org/abs/1905.06482) | ✅ |
 | **SASRec** | Self-Attentive Sequential Recommendation | [Kang et al., 2018] [Self-Attentive Sequential Recommendation](https://arxiv.org/abs/1808.09781) | ✅ |
 | **BST** | Behavior Sequence Transformer | [Chen et al., 2019] [Behavior Sequence Transformer for E-commerce Recommendation in Alibaba](https://arxiv.org/abs/1905.06874) | ✅ |
+## Contact
+For questions, suggestions, or collaboration, please contact:
+Guopan Jin  
+Email: guopan.jin@outlook.com
+## Citation
+
+If you find DeepSklearn useful, please cite this repository:
+
+```bibtex
+@software{jin2026deepsklearn,
+  author = {Guopan Jin},
+  title = {DeepSklearn},
+  year = {2026},
+  url = {https://github.com/guopanjin/deepsklearn}
+}
+
