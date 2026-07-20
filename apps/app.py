@@ -1,9 +1,12 @@
 import json
+import os
+import signal
 import subprocess
 import sys
 import time
 from pathlib import  Path
 import streamlit as st
+from utils import remove_ansi_codes
 #remove top-padding
 st.markdown(
     """
@@ -17,7 +20,7 @@ st.markdown(
 )
 with st.sidebar:
     model_name=st.selectbox("Model",
-                       ["deepfm","lr","dnn","wide_deep","dcn"],
+                       ["lr","dnn","deepfm","wide_deep","dcn"],
                        index=0
                        )
     train_data_path=st.text_input(label="train_data_path",value="~/.deepsklearn/data/criteo/debug_train.csv")
@@ -32,7 +35,10 @@ with st.sidebar:
 st.title("deepsklearn training dashboard")
 left,center1,center2,right=st.columns([1,1,1,1])
 with center1:
-    start_training=st.button("start_training", type="primary")
+    start_training=st.button("start_training",
+                             type="primary",
+                             disabled=st.session_state.get("train_started",False)
+                             )
 with center2:
     stop_training=st.button("stop_training", type="primary")
 st.subheader("train config")
@@ -51,6 +57,7 @@ st.json(train_config)
 config_path=f"../runtime_configs/{model_name}.json"
 log_path = f"../logs/{model_name}.log"
 if start_training:
+    st.session_state["train_started"]=True
     # same file name will overwrite
     with open(config_path, "w", encoding="utf-8") as f:
         json.dump(train_config, f, indent=2, ensure_ascii=False)
@@ -67,18 +74,40 @@ if start_training:
                                  stdout=log_file,
                                  stderr=log_file
                                  )
-        print(f"traning process:{process}")
+        print(f"traning process id:{process.pid}")
+        st.session_state["train_pid"]=process.pid
+
 if stop_training:
-    pass
+    st.session_state["train_started"]=False
+    if "train_pid" not in st.session_state:
+        st.warning("no training process found")
+    else:
+        try:
+            train_pid=st.session_state["train_pid"]
+            os.kill(train_pid,signal.SIGKILL)# kill -9 train_pid
+            st.info(f"successfully kill pid {train_pid}")
+            del st.session_state["train_pid"]
+        except:
+            train_pid = st.session_state["train_pid"]
+            st.error(f"kill -9 {train_pid} faild")
 
-
-st.subheader("train log")
 if Path(log_path).exists():
     with open(log_path,"r",encoding="utf-8") as f:
-        log_text=f.readlines()
+        log_text=f.readlines() #return list
         if len(log_text)<1:
-            log_text="wainting for training log"
-    st.code(log_text[-1000:])
+            log_text="waiting for training log"
+        else:
+            log_text="".join(log_text)
+else:
+    log_text = "waiting for training log"
 
+st.subheader("training_log")
+log_text=remove_ansi_codes(log_text)
+st.text_area(label="log",
+             value=log_text[-1000:],
+             height=500,
+             )
+time.sleep(3)
+st.rerun()
 
 
