@@ -72,7 +72,7 @@ Here is the collection of deep learning and recommendation algorithms supported 
 For questions, suggestions, or collaboration, please contact:
 Email: guopan.jin@outlook.com
 ## Citation
-If you find DeepSklearn useful in your research or projects, please consider citing it:
+If you find deepsklearn useful in your research or projects, please consider citing it:
 ```bibtex
 @software{jin2026deepsklearn,
   author = {Jin, Guopan},
