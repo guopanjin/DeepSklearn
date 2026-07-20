@@ -4,6 +4,10 @@
 <h1 align="center">DeepSklearn</h1>
 <h3 align="center">All You Need Is DeepSklearn.</h3>
 <p align="center">An industrial-grade PyTorch platform for modern deep learning algorithms</p>
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c)](https://pytorch.org/)
+[![License](https://img.shields.io/github/license/guopanjin/deepsklearn)](https://github.com/guopanjin/deepsklearn/blob/main/LICENSE)
+
 
 ## What is DeepSklearn?
 DeepSklearn is an industrial-grade PyTorch platform that makes modern deep learning algorithms easy to build, train, evaluate, and deploy in a clean, sklearn-style workflow.
@@ -67,7 +71,6 @@ Here is the collection of deep learning and recommendation algorithms supported 
 | **Two-Tower**  | Two-Tower Neural Network                          | [Yang et al., 2020] [*Mixed Negative Sampling for Learning Two-Tower Neural Networks in Recommendations*](https://research.google/pubs/mixed-negative-sampling-for-learning-two-tower-neural-networks-in-recommendations/) |    ✅   |
 | **YouTubeDNN** | Deep Neural Network for YouTube Recommendations   | [Covington et al., 2016] [*Deep Neural Networks for YouTube Recommendations*](https://research.google/pubs/deep-neural-networks-for-youtube-recommendations/)                                                              |    ✅   |
 ---
-
 ## Contact
 For questions, suggestions, or collaboration, please contact:
 Email: guopan.jin@outlook.com
