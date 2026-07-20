@@ -1,5 +1,5 @@
-<p>
-<img src="assets/deepsklearn-banner.png">
+<p align="center">
+![deepsklearn banner](assets/deepsklearn-banner.png)
 </p>
 <h1 align="center">DeepSklearn</h1>
 <h3 align="center">All You Need Is DeepSklearn.</h3>
@@ -8,12 +8,10 @@
 ## What is DeepSklearn?
 DeepSklearn is an industrial-grade PyTorch platform for modern deep learning algorithms. It provides sklearn-style unified APIs for datasets, features, models, losses, metrics, optimizers, and trainers, enabling researchers and engineers to build, train, evaluate, and extend deep learning models with clean abstractions and reproducible workflows.
 DeepSklearn is designed to support a growing algorithm zoo, including recommendation models, multi-task learning models, sequence models, and general neural network architectures. It emphasizes practical engineering, modular design, and production-inspired training pipelines.
-<p align="center">
- assets/deepsklearn.gif
-</p>
+
+![deepsklearn demo](assets/deepsklearn.gif)
 
 ## Models
-
 Here is the collection of deep learning and recommendation algorithms supported by this project, categorized into five core domains: generative, multi-task learning, non-sequence, recall, and sequence models.
 
 ### 1. Generative Models
