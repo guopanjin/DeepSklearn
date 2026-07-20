@@ -34,6 +34,11 @@ Here is the collection of deep learning and recommendation algorithms supported 
 | **DLRM**        | Deep Learning Recommendation Model                                        | [Naumov et al., 2019] *Deep Learning Recommendation Model for Personalization and Recommendation Systems*                    |    ✅   |
 ---
 ### 2. Sequence (User Behavior Sequence Models)
+| Model               | Full Name                             | Paper                                                                                                                            | Status |
+| :------------------ | :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------- | :----: |
+| **Average Pooling** | Average Pooling for Sequence Modeling | Common sequence aggregation baseline; no single canonical recommendation paper                                                   |    ✅   |
+| **BST**             | Behavior Sequence Transformer         | [Chen et al., 2019] [*Behavior Sequence Transformer for E-commerce Recommendation in Alibaba*](https://arxiv.org/abs/1905.06874) |    ✅   |
+| **DIN**             | Deep Interest Network                 | [Zhou et al., 2018] [*Deep Interest Network for Click-Through Rate Prediction*](https://arxiv.org/abs/1706.06978)                |    ✅   |
 ### 3. Multi-Task Learning
 | Model             | Full Name                         | Paper                                                                                                                                                                                       | Status |
 | :---------------- | :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----: |
@@ -68,7 +73,6 @@ For questions, suggestions, or collaboration, please contact:
 Email: guopan.jin@outlook.com
 ## Citation
 If you find DeepSklearn useful in your research or projects, please consider citing it:
-
 ```bibtex
 @software{jin2026deepsklearn,
   author = {Jin, Guopan},
