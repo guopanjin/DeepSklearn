@@ -4,14 +4,24 @@
 <h1 align="center">DeepSklearn</h1>
 <h3 align="center">All You Need Is DeepSklearn.</h3>
 <p align="center">An industrial-grade PyTorch platform for modern deep learning algorithms</p>
+
+
 <p align="center">
-
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c)](https://pytorch.org/)
-[![Version](https://img.shields.io/badge/version-1.0.0-orange)](https://github.com/guopanjin/deepsklearn)
-[![License](https://img.shields.io/github/license/guopanjin/deepsklearn)](https://github.com/guopanjin/deepsklearn/blob/main/LICENSE)
-
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.9%2B-blue" alt="Python">
+  </a>
+  <a href="https://pytorch.org/">
+    <img src="https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c" alt="PyTorch">
+  </a>
+  <a href="https://github.com/guopanjin/deepsklearn/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/guopanjin/deepsklearn" alt="License">
+  </a>
+  <a href="https://github.com/guopanjin/deepsklearn">
+    <img src="https://img.shields.io/badge/Version-0.1.0-orange" alt="Version">
+  </a>
 </p>
+
+
 ## What is DeepSklearn?
 DeepSklearn is an industrial-grade PyTorch platform that makes modern deep learning algorithms easy to build, train, evaluate, and deploy in a clean, sklearn-style workflow.
 
