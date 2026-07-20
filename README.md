@@ -6,9 +6,11 @@
 <p align="center">An industrial-grade PyTorch platform for modern deep learning algorithms</p>
 
 ## What is DeepSklearn?
-DeepSklearn is an industrial-grade PyTorch platform for modern deep learning algorithms. It provides sklearn-style unified APIs for datasets, features, models, losses, metrics, optimizers, and trainers, enabling researchers and engineers to build, train, evaluate, and extend deep learning models with clean abstractions and reproducible workflows.
-DeepSklearn is designed to support a growing algorithm zoo, including recommendation models, multi-task learning models, sequence models, and general neural network architectures. It emphasizes practical engineering, modular design, and production-inspired training pipelines.
+DeepSklearn is an industrial-grade PyTorch platform that makes modern deep learning algorithms easy to build, train, evaluate, and deploy in a clean, sklearn-style workflow.
 
+It combines a modular deep learning framework with an interactive Streamlit training dashboard, allowing users to configure datasets, select models, tune hyperparameters, start training, and monitor logs directly from a UI. With DeepSklearn, even beginners can launch deep learning training jobs without writing complex boilerplate training code.
+
+The project is designed to support a growing algorithm zoo, including recommendation models, recall models, multi-task learning models, sequence models, and general neural network architectures. DeepSklearn emphasizes practical engineering, clean abstractions, reusable components, and production-inspired training pipelines.
 ![deepsklearn demo](assets/deepsklearn.gif)
 
 ## Models
